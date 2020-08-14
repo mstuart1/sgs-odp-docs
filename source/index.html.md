@@ -1,11 +1,11 @@
 ---
 title: SGS-ODP API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  # - shell
-  # - ruby
-  # - python
-  - javascript
+# language_tabs: # must be one of https://git.io/vQNgJ
+#   # - shell
+#   # - ruby
+#   # - python
+#   - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -36,67 +36,73 @@ This example API documentation page was created with [Slate](https://github.com/
 ```ruby
 require 'SGS-ODP'
 
-api = SGS-ODP::APIClient.authorize!('meowmeowmeow')
+api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
 ```
 
 ```python
 import SGS-ODP
 
-api = SGS-ODP.authorize('meowmeowmeow')
+api = SGS-ODP.authorize('scarletknightsthrive')
 ```
 
 ```shell
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: scarletknightsthrive"
 ```
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
-let api = SGS-ODP.authorize('meowmeowmeow');
+let api = SGS-ODP.authorize('scarletknightsthrive');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+> Make sure to replace `scarletknightsthrive` with your API key.
 
-SGS-ODP uses API keys to allow access to the API. You can register a new SGS-ODP API key at our [developer portal](http://example.com/developers).
+SGS-ODP uses API keys to allow access to the API once a user has logged in with CAS.
 
 SGS-ODP expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: Bearer 
+scarletknightsthrive`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>scarletknightsthrive</code> with your personal API key.
 </aside>
 
-# Kittens
+# Users
 
-## Get All Kittens
+## Get All Users
+
+
+# Students
+
+## Get All Students
 
 ```ruby
 require 'SGS-ODP'
 
-api = SGS-ODP::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
+api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
+api.students.get
 ```
 
 ```python
 import SGS-ODP
 
-api = SGS-ODP.authorize('meowmeowmeow')
-api.kittens.get()
+api = SGS-ODP.authorize('scarletknightsthrive')
+api.students.get()
 ```
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/students"
+  -H "Authorization: scarletknightsthrive"
 ```
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
-let api = SGS-ODP.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let students = api.students.get();
 ```
 
 > The above command returns JSON structured like this:
@@ -120,49 +126,49 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all students.
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`GET http://example.com/api/students`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
 include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+available | true | If set to false, the result will include students that have already been adopted.
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — a happy student is an authenticated student!
 </aside>
 
-## Get a Specific Kitten
+## Get a Specific Student
 
 ```ruby
 require 'SGS-ODP'
 
-api = SGS-ODP::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
+api.students.get(2)
 ```
 
 ```python
 import SGS-ODP
 
-api = SGS-ODP.authorize('meowmeowmeow')
-api.kittens.get(2)
+api = SGS-ODP.authorize('scarletknightsthrive')
+api.students.get(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl "http://example.com/api/students/2"
+  -H "Authorization: scarletknightsthrive"
 ```
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
-let api = SGS-ODP.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.students.get(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -177,47 +183,47 @@ let max = api.kittens.get(2);
 }
 ```
 
-This endpoint retrieves a specific kitten.
+This endpoint retrieves a specific student.
 
 <aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET http://example.com/students/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the student to retrieve
 
-## Delete a Specific Kitten
+## Delete a Specific Student
 
 ```ruby
 require 'SGS-ODP'
 
-api = SGS-ODP::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
+api.students.delete(2)
 ```
 
 ```python
 import SGS-ODP
 
-api = SGS-ODP.authorize('meowmeowmeow')
-api.kittens.delete(2)
+api = SGS-ODP.authorize('scarletknightsthrive')
+api.students.delete(2)
 ```
 
 ```shell
-curl "http://example.com/api/kittens/2"
+curl "http://example.com/api/students/2"
   -X DELETE
-  -H "Authorization: meowmeowmeow"
+  -H "Authorization: scarletknightsthrive"
 ```
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
-let api = SGS-ODP.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.students.delete(2);
 ```
 
 > The above command returns JSON structured like this:
@@ -229,15 +235,15 @@ let max = api.kittens.delete(2);
 }
 ```
 
-This endpoint deletes a specific kitten.
+This endpoint deletes a specific student.
 
 ### HTTP Request
 
-`DELETE http://example.com/kittens/<ID>`
+`DELETE http://example.com/students/<ID>`
 
 ### URL Parameters
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to delete
+ID | The ID of the student to delete
 
