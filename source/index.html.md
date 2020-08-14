@@ -24,10 +24,10 @@ code_clipboard: true
 Welcome to the SGS-ODP API! You can use our API to access SGS-ODP API endpoints, which can get information on graduate student development plans in our database.
 
 <!-- We have language bindings in Shell, Ruby, Python, and JavaScript!  -->
-You can view code examples in the dark area to the right.
+<!-- You can view code examples in the dark area to the right. -->
 <!-- , and you can switch the programming language of the examples with the tabs in the top right. -->
 
-This example API documentation page was created with [Slate](https://github.com/slatedocs/slate). Feel free to edit it and use it as a base for your own API's documentation.
+This API documentation page was created with [Slate](https://github.com/slatedocs/slate).
 
 # Authentication
 
@@ -73,6 +73,14 @@ You must replace <code>scarletknightsthrive</code> with your personal API key.
 # Users
 
 ## Get All Users
+
+This endpoint retrieves all users and is only accessible by administrators.
+
+### HTTP Request
+
+`GET http://example.com/api/users`
+
+
 
 
 # Students
@@ -126,22 +134,7 @@ let students = api.students.get();
 ]
 ```
 
-This endpoint retrieves all students.
 
-### HTTP Request
-
-`GET http://example.com/api/students`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include students that have already been adopted.
-
-<aside class="success">
-Remember — a happy student is an authenticated student!
-</aside>
 
 ## Get a Specific Student
 
