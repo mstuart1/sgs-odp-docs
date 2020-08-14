@@ -8,7 +8,7 @@ title: SGS-ODP API Reference
   - javascript
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  # - <a href='#'>Sign Up for a Developer Key</a>
   - <a href='https://github.com/slatedocs/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -290,7 +290,7 @@ ID | The ID of the user to delete
 
 # Students
 
-## Get All Students
+## Get All Programs
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
@@ -378,7 +378,7 @@ let mary = api.students.put(3);
   }
 ```
 
-This endpoint updates a specific user.  It expects the user id in the path and for the request body to include information to be updated.  
+This endpoint updates a specific user.  It expects the student id in the path and for the request body to include information to be updated.  
 
 ### HTTP Request
 
@@ -402,16 +402,17 @@ let mary = api.students.post();
 
 ```json
 {
-    "id": 4,
-    "netId": "mlw0001",
-    "firstName": "Maggie Lena",
-    "lastName": "Walker",
-    "email": "abankpresident@youshouldknow.com", 
-    "role": "faculty"
+    "id": 11,
+    "netId": "cct0001",
+    "admissionSemester": "S20",
+    "admissionYear": 2020,
+    "department": 1,
+    "program": 6,
+    "advisor": 7
   }
 ```
 
-This endpoint creates a user record in the database.  It expects the netId, firstName, lastName, and email to be included in the request body.
+This endpoint creates a user record in the database.  It expects the netId, admissionSemester, admissionYear, department id, program id, and advisor id to be included in the request body.
 
 
 ### HTTP Request
@@ -449,4 +450,153 @@ This endpoint deletes a specific student.
 Parameter | Description
 --------- | -----------
 ID | The ID of the student to delete
+
+
+# Programs
+
+## Get All Programs
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let programs = api.programs.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 101,
+    "name": "Ecology and Evolution",
+    "description": ""
+  },
+  {
+    "id": 110,
+    "name": "Computer Science - Data Science",
+    "description": ""
+  }
+]
+```
+
+
+
+## Get a Specific Program
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.programs.get(110);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 110,
+    "name": "Computer Science - Data Science",
+    "description": ""
+  }
+```
+
+This endpoint retrieves a specific program.
+
+### HTTP Request
+
+`GET http://example.com/programs/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the program to retrieve
+
+## Update a Specific Program
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.programs.put(3);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": 'Program updated successfully.'
+  }
+```
+
+This endpoint updates a specific program.  It expects the program id in the path and for the request body to include information to be updated.  
+
+### HTTP Request
+
+`PUT http://example.com/programs/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the program to retrieve
+
+## Create a Program
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.programs.post();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 111,
+    "name": "Education - Ph.D.",
+    "description": ""
+  }
+```
+
+This endpoint creates a program record in the database.  It expects the name of the program to be included in the request body.
+
+
+### HTTP Request
+
+`POST http://example.com/programs`
+
+
+
+## Delete a Specific Program
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.programs.delete(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
+
+This endpoint deletes a specific program.
+
+### HTTP Request
+
+`DELETE http://example.com/programs/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the program to delete
+
 
