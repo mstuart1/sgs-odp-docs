@@ -5,7 +5,7 @@ title: SGS-ODP API Reference
 #   # - shell
 #   # - ruby
 #   # - python
-#   - javascript
+  - javascript
 
 toc_footers:
   - <a href='#'>Sign Up for a Developer Key</a>
@@ -33,13 +33,13 @@ This API documentation page was created with [Slate](https://github.com/slatedoc
 
 > To authorize, use this code:
 
-```ruby
+<!-- ```ruby
 require 'SGS-ODP'
 
 api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
-```
+``` -->
 
-```python
+<!-- ```python
 import SGS-ODP
 
 api = SGS-ODP.authorize('scarletknightsthrive')
@@ -49,7 +49,7 @@ api = SGS-ODP.authorize('scarletknightsthrive')
 # With shell, you can just pass the correct header with each request
 curl "api_endpoint_here"
   -H "Authorization: scarletknightsthrive"
-```
+``` -->
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
@@ -73,20 +73,7 @@ You must replace <code>scarletknightsthrive</code> with your personal API key.
 # Users
 
 ## Get All Users
-
-This endpoint retrieves all users and is only accessible by administrators.
-
-### HTTP Request
-
-`GET http://example.com/api/users`
-
-
-
-
-# Students
-
-## Get All Students
-
+<!-- 
 ```ruby
 require 'SGS-ODP'
 
@@ -104,41 +91,44 @@ api.students.get()
 ```shell
 curl "http://example.com/api/students"
   -H "Authorization: scarletknightsthrive"
-```
-
+``` -->
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
 let api = SGS-ODP.authorize('scarletknightsthrive');
-let students = api.students.get();
+let students = api.users.get();
 ```
-
 > The above command returns JSON structured like this:
 
 ```json
 [
   {
     "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
+    "netId": "pw0001",
+    "firstName": "Phillis",
+    "lastName": "Wheatley",
+    "email": "apoet@youshouldknow.com", 
+    "role": 'student'
   },
   {
     "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "netId": "mjp0001",
+    "firstName": "Mary Jane",
+    "lastName": "Patterson",
+    "email": "ascholar@youshouldknow.com",
+    "role": ['faculty', 'administrator']
   }
 ]
 ```
 
+This endpoint retrieves all users and is only accessible by administrators.
 
+### HTTP Request
 
-## Get a Specific Student
+`GET http://example.com/api/users`
 
-```ruby
+## Get a Specific User
+<!-- ```ruby
 require 'SGS-ODP'
 
 api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
@@ -155,34 +145,34 @@ api.students.get(2)
 ```shell
 curl "http://example.com/api/students/2"
   -H "Authorization: scarletknightsthrive"
-```
-
+``` -->
 ```javascript
 const SGS-ODP = require('SGS-ODP');
 
 let api = SGS-ODP.authorize('scarletknightsthrive');
-let max = api.students.get(2);
+let mary = api.users.get(2);
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+    "id": 3,
+    "netId": "mem0001",
+    "firstName": "Mary Eliza",
+    "lastName": "Mahoney",
+    "email": "anurse@youshouldknow.com",
+    "role": "student"
+  }
 ```
 
-This endpoint retrieves a specific student.
+This endpoint retrieves a specific user.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+
 
 ### HTTP Request
 
-`GET http://example.com/students/<ID>`
+`GET http://example.com/users/<ID>`
 
 ### URL Parameters
 
@@ -190,9 +180,67 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the student to retrieve
 
-## Delete a Specific Student
 
-```ruby
+## Update a Specific User
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.users.put(3);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": 'User updated successfully.'
+  }
+```
+
+This endpoint updates a specific user.  It expects the user id in the path and for the request body to include information to be updated.  
+
+### HTTP Request
+
+`PUT http://example.com/users/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the student to retrieve
+
+## Create a User
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.users.post();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 4,
+    "netId": "mlw0001",
+    "firstName": "Maggie Lena",
+    "lastName": "Walker",
+    "email": "abankpresident@youshouldknow.com", 
+    "role": "faculty"
+  }
+```
+
+This endpoint creates a user record in the database.  It expects the netId, firstName, lastName, and email to be included in the request body.
+
+
+### HTTP Request
+
+`POST http://example.com/users`
+
+
+## Delete a Specific User
+<!-- ```ruby
 require 'SGS-ODP'
 
 api = SGS-ODP::APIClient.authorize!('scarletknightsthrive')
@@ -210,7 +258,169 @@ api.students.delete(2)
 curl "http://example.com/api/students/2"
   -X DELETE
   -H "Authorization: scarletknightsthrive"
+``` -->
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.users.delete(5);
 ```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 5,
+  "deleted" : ":("
+}
+```
+
+This endpoint deletes a specific user.
+
+### HTTP Request
+
+`DELETE http://example.com/users/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the user to delete
+
+
+# Students
+
+## Get All Students
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let students = api.students.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 10,
+    "netId": "cc0001",
+    "admissionSemester": "F20",
+    "admissionYear": 2020,
+    "department": 1,
+    "program": 6,
+    "advisor": 7
+  },
+  {
+    "id": 11,
+    "netId": "cct0001",
+    "admissionSemester": "S20",
+    "admissionYear": 2020,
+    "department": 1,
+    "program": 6,
+    "advisor": 7
+  }
+]
+```
+
+
+
+## Get a Specific Student
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.students.get(11);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 11,
+    "netId": "cct0001",
+    "admissionSemester": "S20",
+    "admissionYear": 2020,
+    "department": 1,
+    "program": 6,
+    "advisor": 7
+  }
+```
+
+This endpoint retrieves a specific student.
+
+### HTTP Request
+
+`GET http://example.com/students/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the student to retrieve
+
+## Update a Specific Student
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.students.put(3);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": 'Student updated successfully.'
+  }
+```
+
+This endpoint updates a specific user.  It expects the user id in the path and for the request body to include information to be updated.  
+
+### HTTP Request
+
+`PUT http://example.com/students/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the student to retrieve
+
+## Create a Student
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.students.post();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 4,
+    "netId": "mlw0001",
+    "firstName": "Maggie Lena",
+    "lastName": "Walker",
+    "email": "abankpresident@youshouldknow.com", 
+    "role": "faculty"
+  }
+```
+
+This endpoint creates a user record in the database.  It expects the netId, firstName, lastName, and email to be included in the request body.
+
+
+### HTTP Request
+
+`POST http://example.com/students`
+
+
+
+## Delete a Specific Student
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
