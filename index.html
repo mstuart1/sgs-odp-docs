@@ -325,7 +325,7 @@
             <a href="#students" class="toc-h1 toc-link" data-title="Students">Students</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-programs" class="toc-h2 toc-link" data-title="Get All Programs">Get All Programs</a>
+                    <a href="#get-all-students" class="toc-h2 toc-link" data-title="Get All Students">Get All Students</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-student" class="toc-h2 toc-link" data-title="Get a Specific Student">Get a Specific Student</a>
@@ -345,7 +345,7 @@
             <a href="#programs" class="toc-h1 toc-link" data-title="Programs">Programs</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-programs-2" class="toc-h2 toc-link" data-title="Get All Programs">Get All Programs</a>
+                    <a href="#get-all-programs" class="toc-h2 toc-link" data-title="Get All Programs">Get All Programs</a>
                   </li>
                   <li>
                     <a href="#get-a-specific-program" class="toc-h2 toc-link" data-title="Get a Specific Program">Get a Specific Program</a>
@@ -358,6 +358,26 @@
                   </li>
                   <li>
                     <a href="#delete-a-specific-program" class="toc-h2 toc-link" data-title="Delete a Specific Program">Delete a Specific Program</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#departments" class="toc-h1 toc-link" data-title="Departments">Departments</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#get-all-departments" class="toc-h2 toc-link" data-title="Get All Departments">Get All Departments</a>
+                  </li>
+                  <li>
+                    <a href="#get-a-specific-department" class="toc-h2 toc-link" data-title="Get a Specific Department">Get a Specific Department</a>
+                  </li>
+                  <li>
+                    <a href="#update-a-specific-department" class="toc-h2 toc-link" data-title="Update a Specific Department">Update a Specific Department</a>
+                  </li>
+                  <li>
+                    <a href="#create-a-department" class="toc-h2 toc-link" data-title="Create a Department">Create a Department</a>
+                  </li>
+                  <li>
+                    <a href="#delete-a-specific-department" class="toc-h2 toc-link" data-title="Delete a Specific Department">Delete a Specific Department</a>
                   </li>
               </ul>
           </li>
@@ -612,7 +632,7 @@ curl "http://example.com/api/students/2"
 <td>The ID of the user to delete</td>
 </tr>
 </tbody></table>
-<h1 id='students'>Students</h1><h2 id='get-all-programs'>Get All Programs</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+<h1 id='students'>Students</h1><h2 id='get-all-students'>Get All Students</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">students</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">students</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
@@ -640,7 +660,11 @@ curl "http://example.com/api/students/2"
     </span><span class="nl">"advisor"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='get-a-specific-student'>Get a Specific Student</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This endpoint retrieves all students and is only accessible by administrators.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET http://example.com/api/students</code></p>
+<h2 id='get-a-specific-student'>Get a Specific Student</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">students</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">11</span><span class="p">);</span>
@@ -659,7 +683,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific student.</p>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET http://example.com/students/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-4'>URL Parameters</h3>
 <table><thead>
@@ -686,7 +710,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific user.  It expects the student id in the path and for the request body to include information to be updated.  </p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>PUT http://example.com/students/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-5'>URL Parameters</h3>
 <table><thead>
@@ -719,7 +743,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a user record in the database.  It expects the netId, admissionSemester, admissionYear, department id, program id, and advisor id to be included in the request body.</p>
-<h3 id='http-request-8'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>POST http://example.com/students</code></p>
 <h2 id='delete-a-specific-student'>Delete a Specific Student</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
@@ -735,7 +759,7 @@ curl "http://example.com/api/students/2"
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint deletes a specific student.</p>
-<h3 id='http-request-9'>HTTP Request</h3>
+<h3 id='http-request-10'>HTTP Request</h3>
 <p><code>DELETE http://example.com/students/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-6'>URL Parameters</h3>
 <table><thead>
@@ -749,7 +773,7 @@ curl "http://example.com/api/students/2"
 <td>The ID of the student to delete</td>
 </tr>
 </tbody></table>
-<h1 id='programs'>Programs</h1><h2 id='get-all-programs-2'>Get All Programs</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+<h1 id='programs'>Programs</h1><h2 id='get-all-programs'>Get All Programs</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">programs</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">programs</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
@@ -769,7 +793,11 @@ curl "http://example.com/api/students/2"
     </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h2 id='get-a-specific-program'>Get a Specific Program</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+</span></code></pre></div>
+<p>This endpoint retrieves all programs.</p>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>GET http://example.com/api/programs</code></p>
+<h2 id='get-a-specific-program'>Get a Specific Program</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
 <span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
 <span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">programs</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">110</span><span class="p">);</span>
@@ -784,7 +812,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint retrieves a specific program.</p>
-<h3 id='http-request-10'>HTTP Request</h3>
+<h3 id='http-request-12'>HTTP Request</h3>
 <p><code>GET http://example.com/programs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-7'>URL Parameters</h3>
 <table><thead>
@@ -811,7 +839,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint updates a specific program.  It expects the program id in the path and for the request body to include information to be updated.  </p>
-<h3 id='http-request-11'>HTTP Request</h3>
+<h3 id='http-request-13'>HTTP Request</h3>
 <p><code>PUT http://example.com/programs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-8'>URL Parameters</h3>
 <table><thead>
@@ -840,7 +868,7 @@ curl "http://example.com/api/students/2"
   </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint creates a program record in the database.  It expects the name of the program to be included in the request body.</p>
-<h3 id='http-request-12'>HTTP Request</h3>
+<h3 id='http-request-14'>HTTP Request</h3>
 <p><code>POST http://example.com/programs</code></p>
 <h2 id='delete-a-specific-program'>Delete a Specific Program</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
 
@@ -856,7 +884,7 @@ curl "http://example.com/api/students/2"
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>
 <p>This endpoint deletes a specific program.</p>
-<h3 id='http-request-13'>HTTP Request</h3>
+<h3 id='http-request-15'>HTTP Request</h3>
 <p><code>DELETE http://example.com/programs/&lt;ID&gt;</code></p>
 <h3 id='url-parameters-9'>URL Parameters</h3>
 <table><thead>
@@ -868,6 +896,131 @@ curl "http://example.com/api/students/2"
 <tr>
 <td>ID</td>
 <td>The ID of the program to delete</td>
+</tr>
+</tbody></table>
+<h1 id='departments'>Departments</h1><h2 id='get-all-departments'>Get All Departments</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">departments</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">departments</span><span class="p">.</span><span class="kd">get</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animal Sciences"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marine and Coastal Sciences"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves all departments.</p>
+<h3 id='http-request-16'>HTTP Request</h3>
+<p><code>GET http://example.com/api/departments</code></p>
+<h2 id='get-a-specific-department'>Get a Specific Department</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">departments</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="mi">110</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marine and Coastal Sciences"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint retrieves a specific department.</p>
+<h3 id='http-request-17'>HTTP Request</h3>
+<p><code>GET http://example.com/departments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-10'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the department to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='update-a-specific-department'>Update a Specific Department</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">mary</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">departments</span><span class="p">.</span><span class="nx">put</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"message"</span><span class="p">:</span><span class="w"> </span><span class="err">'Department</span><span class="w"> </span><span class="err">updated</span><span class="w"> </span><span class="err">successfully.'</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint updates a specific department.  It expects the department id in the path and for the request body to include information to be updated.  </p>
+<h3 id='http-request-18'>HTTP Request</h3>
+<p><code>PUT http://example.com/departments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-11'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the department to retrieve</td>
+</tr>
+</tbody></table>
+<h2 id='create-a-department'>Create a Department</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">mary</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">departments</span><span class="p">.</span><span class="nx">post</span><span class="p">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Marine and Coastal Sciences"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint creates a department record in the database.  It expects the name of the department to be included in the request body.</p>
+<h3 id='http-request-19'>HTTP Request</h3>
+<p><code>POST http://example.com/departments</code></p>
+<h2 id='delete-a-specific-department'>Delete a Specific Department</h2><div class="highlight"><pre class="highlight javascript tab-javascript"><code><span class="kd">const</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">SGS-ODP</span><span class="dl">'</span><span class="p">);</span>
+
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">SGS</span><span class="o">-</span><span class="nx">ODP</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="dl">'</span><span class="s1">scarletknightsthrive</span><span class="dl">'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">departments</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint deletes a specific department.</p>
+<h3 id='http-request-20'>HTTP Request</h3>
+<p><code>DELETE http://example.com/departments/&lt;ID&gt;</code></p>
+<h3 id='url-parameters-12'>URL Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>ID</td>
+<td>The ID of the department to delete</td>
 </tr>
 </tbody></table>
 
