@@ -279,7 +279,7 @@
   color: #859900;
 }
     </style>
-    <link href="stylesheets/screen-c9d8fa83.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/screen-fca09c44.css" rel="stylesheet" media="screen" />
     <link href="stylesheets/print-953e3353.css" rel="stylesheet" media="print" />
       <script src="javascripts/all-e9bde216.js"></script>
 
@@ -347,10 +347,11 @@
 
 <!-- We have language bindings in Shell, Ruby, Python, and JavaScript!  -->
 
-<p>You can view code examples in the dark area to the right.
-&lt;!-- , and you can switch the programming language of the examples with the tabs in the top right. --&gt;</p>
+<!-- You can view code examples in the dark area to the right. -->
 
-<p>This example API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
+<!-- , and you can switch the programming language of the examples with the tabs in the top right. -->
+
+<p>This API documentation page was created with <a href="https://github.com/slatedocs/slate">Slate</a>.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
 <p>To authorize, use this code:</p>
@@ -382,7 +383,11 @@ scarletknightsthrive</code></p>
 <aside class="notice">
 You must replace <code>scarletknightsthrive</code> with your personal API key.
 </aside>
-<h1 id='users'>Users</h1><h2 id='get-all-users'>Get All Users</h2><h1 id='students'>Students</h1><h2 id='get-all-students'>Get All Students</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'SGS-ODP'</span>
+<h1 id='users'>Users</h1><h2 id='get-all-users'>Get All Users</h2>
+<p>This endpoint retrieves all users and is only accessible by administrators.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://example.com/api/users</code></p>
+<h1 id='students'>Students</h1><h2 id='get-all-students'>Get All Students</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'SGS-ODP'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">SGS</span><span class="o">-</span><span class="no">ODP</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'scarletknightsthrive'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">students</span><span class="p">.</span><span class="nf">get</span>
@@ -416,34 +421,7 @@ You must replace <code>scarletknightsthrive</code> with your personal API key.
     </span><span class="nl">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div>
-<p>This endpoint retrieves all students.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/students</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include students that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy student is an authenticated student!
-</aside>
-<h2 id='get-a-specific-student'>Get a Specific Student</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'SGS-ODP'</span>
+</span></code></pre></div><h2 id='get-a-specific-student'>Get a Specific Student</h2><div class="highlight"><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'SGS-ODP'</span>
 
 <span class="n">api</span> <span class="o">=</span> <span class="no">SGS</span><span class="o">-</span><span class="no">ODP</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'scarletknightsthrive'</span><span class="p">)</span>
 <span class="n">api</span><span class="p">.</span><span class="nf">students</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
