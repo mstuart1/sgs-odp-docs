@@ -760,3 +760,159 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the department to delete
 
+
+# Faculty
+
+## Get All Faculty
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let faculty = api.faculty.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 101,
+    "netId": "cc0001",
+    "program": 1,
+    "department": 3
+  },
+  {
+    "id": 111,
+    "netId": "cc0401",
+    "program": 1,
+    "department": 6
+  }
+]
+```
+This endpoint retrieves all faculty.
+
+### HTTP Request
+
+`GET http://example.com/api/faculty`
+
+
+## Get a Specific Faculty
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.faculty.get(110);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 111,
+    "netId": "cc0401",
+    "program": 1,
+    "department": 6
+  }
+```
+
+This endpoint retrieves a specific faculty.
+
+### HTTP Request
+
+`GET http://example.com/faculty/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the faculty to retrieve
+
+## Update a Specific Faculty
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.faculty.put(3);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": 'Faculty updated successfully.'
+  }
+```
+
+This endpoint updates a specific faculty.  It expects the faculty id in the path and for the request body to include information to be updated.  
+
+### HTTP Request
+
+`PUT http://example.com/faculty/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the faculty to retrieve
+
+## Create a Faculty
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.faculty.post();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 111,
+    "netId": "cc0401",
+    "program": 1,
+    "department": 6
+  }
+```
+
+This endpoint creates a faculty record in the database.  It expects the name of the faculty to be included in the request body.
+
+
+### HTTP Request
+
+`POST http://example.com/faculty`
+
+
+
+## Delete a Specific Faculty
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.faculty.delete(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
+
+This endpoint deletes a specific faculty.
+
+### HTTP Request
+
+`DELETE http://example.com/faculty/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the faculty to delete
+
