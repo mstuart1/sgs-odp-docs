@@ -290,7 +290,7 @@ ID | The ID of the user to delete
 
 # Students
 
-## Get All Programs
+## Get All Students
 
 ```javascript
 const SGS-ODP = require('SGS-ODP');
@@ -323,7 +323,11 @@ let students = api.students.get();
   }
 ]
 ```
+This endpoint retrieves all students and is only accessible by administrators.
 
+### HTTP Request
+
+`GET http://example.com/api/students`
 
 
 ## Get a Specific Student
@@ -479,7 +483,11 @@ let programs = api.programs.get();
   }
 ]
 ```
+This endpoint retrieves all programs.
 
+### HTTP Request
+
+`GET http://example.com/api/programs`
 
 
 ## Get a Specific Program
@@ -599,4 +607,156 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the program to delete
 
+
+
+# Departments
+
+## Get All Departments
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let departments = api.departments.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 101,
+    "name": "Animal Sciences",
+    "description": ""
+  },
+  {
+    "id": 110,
+    "name": "Marine and Coastal Sciences",
+    "description": ""
+  }
+]
+```
+This endpoint retrieves all departments.
+
+### HTTP Request
+
+`GET http://example.com/api/departments`
+
+
+## Get a Specific Department
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.departments.get(110);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 110,
+    "name": "Marine and Coastal Sciences",
+    "description": ""
+  }
+```
+
+This endpoint retrieves a specific department.
+
+### HTTP Request
+
+`GET http://example.com/departments/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the department to retrieve
+
+## Update a Specific Department
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.departments.put(3);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "message": 'Department updated successfully.'
+  }
+```
+
+This endpoint updates a specific department.  It expects the department id in the path and for the request body to include information to be updated.  
+
+### HTTP Request
+
+`PUT http://example.com/departments/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the department to retrieve
+
+## Create a Department
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let mary = api.departments.post();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+    "id": 110,
+    "name": "Marine and Coastal Sciences",
+    "description": ""
+  }
+```
+
+This endpoint creates a department record in the database.  It expects the name of the department to be included in the request body.
+
+
+### HTTP Request
+
+`POST http://example.com/departments`
+
+
+
+## Delete a Specific Department
+
+```javascript
+const SGS-ODP = require('SGS-ODP');
+
+let api = SGS-ODP.authorize('scarletknightsthrive');
+let max = api.departments.delete(2);
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 2,
+  "deleted" : ":("
+}
+```
+
+This endpoint deletes a specific department.
+
+### HTTP Request
+
+`DELETE http://example.com/departments/<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the department to delete
 
