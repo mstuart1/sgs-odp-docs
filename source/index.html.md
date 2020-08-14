@@ -1,10 +1,10 @@
 ---
-title: API Reference
+title: SGS-ODP API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
+  # - shell
+  # - ruby
+  # - python
   - javascript
 
 toc_footers:
